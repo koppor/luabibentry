@@ -1,7 +1,7 @@
 % \iffalse meta-comment
 % ==========================================================================
-% luabibentry.dtx v0.1, 2011/06/27
-% Copyright (c) Oliver Kopp, 2011
+% luabibentry.dtx v0.1a, 2012/02/02
+% Copyright (c) Oliver Kopp, 2012
 %
 % This file is part of the LuaLaTex package `luabibentry'.
 % 
@@ -41,7 +41,7 @@
 \obeyspaces\obeylines
 \global\def\preambletext{
 \space
-Copyright (c) 2011 by Oliver Kopp <oliver.kopp.googlemail.com>
+Copyright (c) 2012 by Oliver Kopp <oliver.kopp.googlemail.com>
 
 This file was generated from file(s) of luabibentry distribution.
 -----------------------------------------------------------------
@@ -134,13 +134,13 @@ In case an entry is not found "?" is output
 %<package>\ProvidesPackage{luabibentry}
 %<driver>\ProvidesFile{luaindex.dtx}
 %<*driver|package>
-[2007/06/27 v0.1 LuaLaTeX Package to place bibliography entries in text]
+[2012/02/02 v0.1a LuaLaTeX Package to place bibliography entries in text]
 %</driver|package>
 %<lua>if (luatexbase and (luatexbase.provides_module)) then
 %<lua>   luatexbase.provides_module({
 %<lua>      name = "luabibentry",
-%<lua>      date = "2011/06/27",
-%<lua>      version = "0.1",
+%<lua>      date = "2012/02/02",
+%<lua>      version = "0.1a",
 %<lua>      description = "LuaLaTeX Package to Place Bibliography Entries in Text",
 %<lua>      author = "Oliver Kopp",
 %<lua>      licence = "LPPL v1.3c or later"
@@ -161,7 +161,7 @@ In case an entry is not found "?" is output
   The \texttt{luabibentry} package
 }
 %\date{\fileversion} %currently doesn't work
-\date{Version 0.1 as of 2011/06/27}
+\date{Version 0.1a as of 2012/02/02}
 \author{Oliver Kopp\thanks{oliver.kopp%
 @%
 googlemail%
@@ -175,6 +175,7 @@ com}}
 %\fi^^A meta-comment
 %
 % \changes{v0.1}{2011/06/27}{start of new package}
+% \changes{v0.1a}{2012/02/02}{fixed lua code to use `require' instead of `dofile'.}
 %
 % \begin{abstract}
 %   Typically, bibliographic entries are put at the end of a document. This 
@@ -373,7 +374,7 @@ end
 %
 % Load the lua module:
 %    \begin{macrocode}
-\directlua{dofile("luabibentry.lua")}
+\directlua{require("luabibentry.lua")}
 %    \end{macrocode}
 %
 % Interface to the lua module:

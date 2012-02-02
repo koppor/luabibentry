@@ -1,11 +1,11 @@
-LuaLaTeX package luaindex v0.1, 2001-06-27.
-Copyright (c) Oliver Kopp, 2011
+LuaLaTeX package luabibentry v0.1a, 2012-02-02.
+Copyright (c) Oliver Kopp, 2012
 
 Summary
 -------
-luabibentry is a reimplementation of bibentry.sty by Patrick W.\ Daly. It
-provides the command \bibentry{<BibTeXKey>} to print the bibliographic entry in
-the main document.
+luabibentry is a reimplementation of bibentry.sty by Patrick W. Daly.
+It provides the command \bibentry{<BibTeXKey>} to print the 
+bibliographic entry in the main document.
 
 
 Generating the package

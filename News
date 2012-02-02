@@ -1,2 +1,6 @@
-2011/06/27
+2012/02/02 - v0.1a
+ * luabibentry.lua is now found in the lua search path.
+   * Replaced dofile by require as suggested by Ulrike Fischer.
+
+2011/06/27 - v0.1
  * Initial version

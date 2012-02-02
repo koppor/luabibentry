@@ -1,0 +1,400 @@
+% \iffalse meta-comment
+% ==========================================================================
+% luabibentry.dtx v0.1, 2011/06/27
+% Copyright (c) Oliver Kopp, 2011
+%
+% This file is part of the LuaLaTex package `luabibentry'.
+% 
+% This work may be distributed and/or modified under the conditions of
+% the LaTeX Project Public License, version 1.3c of the license.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer and author of this work is Oliver Kopp.
+%
+% This work consists of the files `luabibentry.dtx' and `README'.
+%
+% Unpacking:
+%   tex luabibentry.dtx
+% Documentation:
+%   pdflatex luacode.dtx
+% ==========================================================================
+%
+%<*ignore>
+\begingroup
+  \def\x{LaTeX2e}%
+\expandafter\endgroup
+\ifcase 0\ifx\install y1\fi\expandafter
+         \ifx\csname processbatchFile\endcsname\relax\else1\fi
+         \ifx\fmtname\x\else 1\fi\relax
+\else\csname fi\endcsname
+%</ignore>
+%<*install>
+\input docstrip.tex
+\keepsilent
+\askforoverwritefalse
+{
+\obeyspaces\obeylines
+\global\def\preambletext{
+\space
+Copyright (c) 2011 by Oliver Kopp <oliver.kopp.googlemail.com>
+
+This file was generated from file(s) of luabibentry distribution.
+-----------------------------------------------------------------
+
+This work may be distributed and/or modified under the conditions of
+the LaTeX Project Public License, version 1.3c of the license.
+The latest version of this license is in
+  http://www.latex-project.org/lppl.txt
+and version 1.3c or later is part of all distributions of LaTeX
+version 2005/12/01 or later.
+
+This work has the LPPL maintenance status "maintained".
+
+The Current Maintainer and author of this work is Oliver Kopp.
+
+This file may only be distributed together with the files listed in
+`luabibentry.dtx'. You may however distribute the files listed in 
+`luabibentry.dtx' without this file.
+}
+\global\def\stypreambletext{
+\preambletext
+Usage:
+
+\string\setupbibentry{<bibliography>} before the usage of \string\bibentry.
+\string\setupbibentry{\string\jobname} may be used if the bibliography has the same name as the .tex file.
+
+\string\bibentry{<entry>} where you want to have placed an entry.
+In case an entry is not found "?" is output
+}
+}
+%
+\expandafter\preamble
+\preambletext
+\endpreamble
+%
+\declarepreamble\stypreamble
+\stypreambletext
+\endpreamble
+%
+\def\BibTeXComment{@Comment }
+\let\MetaPrefix\BibTeXComment
+\declarepreamble\bibpreamble
+\preambletext
+\endpreamble
+%
+\def\ThreeHyphens{---}
+\let\MetaPrefix\ThreeHyphens
+%
+\expandafter\declarepreamble\expandafter\luapreamble
+\preambletext
+\endpreamble
+
+\generate{%
+  \let\MetaPrefix\DoubleperCent
+  \usepreamble\defaultpreamble
+  \file{test-luabibentry.tex}{\from{luabibentry.dtx}{testlatex}}%
+%
+  \let\MetaPrefix\DoubleperCent
+  \usepreamble\stypreamble
+  \file{luabibentry.sty}{\from{luabibentry.dtx}{package}}%
+%
+  \let\MetaPrefix\BibTeXComment
+  \usepreamble\bibpreamble
+  \nopostamble
+  \file{test-luabibentry.bib}{\from{luabibentry.dtx}{testbibtex}}%
+%
+  \let\MetaPrefix\ThreeHyphens
+  \usepreamble\luapreamble
+  \nopostamble
+  \file{luabibentry.lua}{\from{luabibentry.dtx}{lua}}%
+}
+{
+\obeyspaces
+\Msg{************************************************************************}
+\Msg{*}
+\Msg{* To finish the installation you have to move the following}
+\Msg{* files into a directory searched by TeX:}
+\Msg{*}
+\Msg{*     luabibentry.sty and luabibentry.lua}
+\Msg{*}
+\Msg{* Happy TeXing!}
+\Msg{*}
+\Msg{************************************************************************}
+}
+
+%\csname endinput\endcsname
+\endbatchfile
+%</install>
+%<package>\NeedsTeXFormat{LaTeX2e}[1995/06/01]
+%<package>\ProvidesPackage{luabibentry}
+%<driver>\ProvidesFile{luaindex.dtx}
+%<*driver|package>
+[2007/06/27 v0.1 LuaLaTeX Package to place bibliography entries in text]
+%</driver|package>
+%<lua>if (luatexbase and (luatexbase.provides_module)) then
+%<lua>   luatexbase.provides_module({
+%<lua>      name = "luabibentry",
+%<lua>      date = "2011/06/27",
+%<lua>      version = "0.1",
+%<lua>      description = "LuaLaTeX Package to Place Bibliography Entries in Text",
+%<lua>      author = "Oliver Kopp",
+%<lua>      licence = "LPPL v1.3c or later"
+%<lua>  })
+%<lua>end
+%<*ignore>
+\fi
+%</ignore>
+%<*driver>
+\documentclass[oneside,DIV=16,BCOR=0cm,parskip=half]{scrdoc}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\providecommand*{\LuaLaTeX}{Lua\kern-.025em\LaTeX}
+\CodelineIndex
+\RecordChanges
+\GetFileInfo{luabibentry.ltx}
+\title{%
+  The \texttt{luabibentry} package
+}
+%\date{\fileversion} %currently doesn't work
+\date{Version 0.1 as of 2011/06/27}
+\author{Oliver Kopp\thanks{oliver.kopp%
+@%
+googlemail%
+.%
+com}}
+\begin{document}
+\maketitle
+\DocInput{luabibentry.dtx}
+\end{document}
+%</driver>
+%\fi^^A meta-comment
+%
+% \changes{v0.1}{2011/06/27}{start of new package}
+%
+% \begin{abstract}
+%   Typically, bibliographic entries are put at the end of a document. This 
+%   package allows for \emph{repeating} bibliographic entries in the document itself. The package
+%   is inspired by bibentry, which provides similar functionality for \LaTeX{}.
+% \end{abstract}
+%
+% \tableofcontents
+%
+% \section{Introduction}
+% This package allows one to place bibliographic entries anywhere
+% in the text. It is to be used to produce annotated bibliographies, such as
+% \begin{quote}
+%   For an intoduction to the topic of workflow management, see 
+%   Frank Leymann and Dieter Roller. {\it Production Workflow -- Concepts and Techniques}. 
+%   Prentice Hall PTR, 2000.
+% \end{quote}
+%
+% The idea is that the full reference is used, not just the citation [1] or
+% Leymann and Roller [2000].
+%
+% This package is a variant of bibentry.sty by Patrick W.\ Daly. bibentry.sty is
+% distributed with the natbib
+% package\footnote{\url{http://mirror.ctan.org/macros/latex/contrib/natbib/}}. This
+% documentation of luabibentry is mostly adapted from Patrick's documentation of
+% bibentry. bibentry itself is part of the natbib package.
+%
+% The main reason for the reimplementation is the incompatibility of hyperref's
+% backref with bibenetry.sty. The \texttt{\textbackslash saved \makeatletter
+% @\makeatother bibitem} solution did not work here.
+% 
+% The differences to bibentry.sty is: 
+% The commands |\nobibliography| and |\nobibliography*|
+% are unsupported. luabibentry always uses the bibliography of the
+% document.
+%
+% \section{Usage}
+% |\setupbibentry{<bibliography>}| before the usage of |\bibentry|.\\
+% |\setupbibentry{\jobname}| may be used if the bibliography has the same name as the |.tex| file.
+%
+% |\bibentry{<entry>}| where you want to have placed an entry.
+% In case an entry is not found, ``?'' is output.
+%
+% \section{Caveats}
+% The caveats of the entry format are similar to the bibentry package. The only 
+% difference is that luabibentry expects the key as last token in the bibitem entry.
+% Thus, the following text is a verbatim copy of bibentry's documentation with the 
+% reference to the allowed space after the key being removed.
+%
+% The entries in the \texttt{.bbl} must be of the form
+% \begin{quote}
+%  |\bibitem|\oarg{label}\marg{key}\\
+%  \emph{Text of the reference entry.}\\[1ex]
+%  |\bibitem|\dots
+% \end{quote}
+% That is, there must be a new line after the \marg{key}
+% and a blank line before the next |\bibitem|. The final period in the text
+% will be removed, if present, allowing one to place the |\bibentry| commands
+% in mid-sentence. Of course, there may be other periods within the text that
+% might look funny.
+% 
+% \section{Test}
+% A simple test whether luabibentry runs is provided here:
+%
+% \iffalse meta-comment
+%<*testlatex>
+% \fi
+%    \begin{macrocode}
+\documentclass{article}
+\usepackage{luabibentry}
+\setupbibentry{\jobname}
+
+\usepackage[backref=page]{hyperref}
+
+\begin{document}
+
+The entry for \cite{LR2000} is: \bibentry{LR2000}.
+
+\bibliographystyle{plain}
+\bibliography{test-luabibentry}
+
+\end{document}
+%    \end{macrocode}
+% \iffalse meta-comment
+%</testlatex>
+% \fi
+%
+% \iffalse meta-comment
+%<*testbibtex>
+% \fi
+%    \begin{macrocode}
+@BOOK{LR2000,
+  title = {{P}roduction {W}orkflow -- {C}oncepts and {T}echniques},
+  publisher = {Prentice Hall PTR},
+  year = {2000},
+  author = {Frank Leymann and Dieter Roller},
+  isbn = {0130217530}
+}
+%    \end{macrocode}
+% \iffalse meta-comment
+%</testbibtex>
+% \fi
+%
+% \section{Implementation of Lua Module \texttt{luabibentry.lua}}
+% \iffalse meta-comment
+%<*lua>
+% \fi^^A meta-comment
+%    \begin{macrocode}
+module("luabibentry", package.seeall)
+require("lualibs-file")
+
+-- stores all entries
+local entries = {}
+
+-- builds the data by reading the given filename
+function builddata(filename)
+  -- Parameters seem to be passed as arrays. 
+  -- We access the first element of the parameter to get the filename
+  local file = io.open(filename[1], "r")
+  if file==nil then
+     texio.write_nl("luabibentry: could not open file " .. filename[1])
+     return
+  end
+  local line = file:read("*line")
+  while (line~=nil) do
+    -- \bibitem is our marker for new entries
+    local i = string.find(line, "\\bibitem")
+    if i~=nil then
+      -- we expect the key in brackets in the same line
+      i = string.find(line,"{")
+      local lasti = 0
+      -- we jump to the last bracket
+      while i~= nil do
+         lasti = i
+         i = string.find(line,"{",i+1)
+      end
+      local key = string.sub(line, lasti+1)
+      -- we use the text from the last opening bracket ("{") until
+      -- the end of the line minus one
+      -- we expect nothing more to follow in this line
+      key = string.sub(key, 1, string.len(key)-1)
+      -- the next lines are the entry
+      -- we expect an entry to be finished with a blank line 
+      -- (or the end of the file)
+      line = file:read("*line")
+      local entry = ""
+      while (line~=nil) and (line~="") do
+         entry = entry .. line
+         line = file:read("*line")
+      end
+      -- remove the final dot (if present)
+      local entryLen = string.len(entry)
+      local lastChar = string.sub(entry, entryLen, entryLen)
+      if lastChar == "." then
+        entry = string.sub(entry, 1, entryLen-1)
+      end
+      entries[key]=entry
+    end
+    line = file:read("*line")
+  end
+  file:close()
+end
+
+-- looks up the given key in the entries
+-- in case an entry is not found, a bold question mark is printed
+function bibentry(key)
+  local res = entries[key[1]]
+  if res==nil then
+     res = "\\textbf{?}"
+  end
+  tex.print(res)
+end
+
+%    \end{macrocode}
+%
+% \iffalse meta-comment
+%</lua>
+% \fi^^A meta-comment
+
+% \section{Implementation of \LaTeX{} Package  \texttt{luabibentry.sty}}
+%
+% \iffalse meta-comment
+%<*package>
+% \fi^^A meta-comment
+% \LuaLaTeX{} must be used to use the package.
+%    \begin{macrocode}
+\RequirePackage{ifluatex}
+\ifluatex\else
+  \PackageError{luabibentry}{lualatex needed}{%
+    Package `luabibentry' needs LuaTeX.\MessageBreak
+    So you should use `lualatex' to process you document!\MessageBreak
+    See documentation of `luabibentry' for further information.}%
+  \expandafter\expandafter\expandafter\csname endinput\endcsname
+\fi
+%    \end{macrocode}
+%
+% Load the lua module:
+%    \begin{macrocode}
+\directlua{dofile("luabibentry.lua")}
+%    \end{macrocode}
+%
+% Interface to the lua module:
+%    \begin{macrocode}
+\newcommand{\setupbibentry}[1]{\directlua{luabibentry.builddata{"#1.bbl"}}}
+\newcommand{\bibentry}[1]{\nocite{#1}\directlua{luabibentry.bibentry{"#1"}}}
+%    \end{macrocode}
+%
+% \iffalse meta-comment
+%</package>
+% \fi^^A meta-comment
+%
+% \section{Acknowledgements}
+% This package is a variant of |bibentry.sty| by Patrick W.\ Daly. |bibentry.sty| is
+% distributed with the |natbib| package. This documentation of luabibentry is
+% mostly adapted from Patrick's documentation of |bibentry|.
+%
+% Thanks to Markus Kohm for the dtx and lua inspirements, Manuel
+% P\'egouri\'e-Gonnard for the Makefile, dtx, and lua inspirements, and 
+% Heiko Oberdiek for his detailed feedback on a draft version of this package.
+%
+% \Finale
+%
+\endinput

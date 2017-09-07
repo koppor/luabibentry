@@ -1,4 +1,9 @@
-LuaLaTeX package luabibentry v0.1a, 2012-02-02.
+# LuaLaTeX package luabibentry
+
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
+v0.1a, 2012-02-02.
+
 Copyright (c) Oliver Kopp, 2012
 
 Summary

@@ -1,6 +1,4 @@
-# LuaLaTeX package luabibentry
-
-[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+# LuaLaTeX package luabibentry [![CTAN](https://img.shields.io/badge/CTAN-luabibentry-blue.svg?style=flat-square)](https://ctan.org/pkg/luabibentry) [![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 
 v0.1a, 2012-02-02.
 
